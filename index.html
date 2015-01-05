@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta name="author" content="Darko Bunic"/>
+		<meta name="description" content="Drag and drop table content with JavaScript"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no"/><!-- "position: fixed" fix for Android 2.2+ -->
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="lib/redips-drag-min.js"></script>
+		<script type="text/javascript" src="redips-table-min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+		<title>Form Generator</title>
+	</head>
+	<body>
+		<!-- tables inside this DIV could have draggable content -->
+		<div id="drag">
+			<!-- left container -->
+			<div id="left">
+				<div class="instructions">
+				<strong>Building blocks</strong>
+				<br/>
+				Drag components to build the form
+				</div>
+				<table id="tblComponents">
+					<colgroup>
+						<col width="150"/>
+					</colgroup>
+					<tbody>
+						<tr><td class="mark"><div class="drag clone" id="in1">Input Text</div></td></tr>
+						<tr><td class="mark"><div class="drag clone" id="ra1">Radio Button</div></td></tr>
+						<tr><td class="mark"><div class="drag clone" id="te1">Text Area</div></td></tr>
+					</tbody>
+				</table>
+			</div><!-- left container -->
+			
+			<!-- right container -->
+			<div id="right">
+				<!-- main table -->
+				<table id="tblEditor">
+					<colgroup>
+						<col width="600"/>
+						<col width="50"/>
+					</colgroup>
+					<tbody>
+						<tr>
+							<td></td>
+							<td class="mark ignore">
+								<div>
+									<span onclick="redips.rowDelete(this)" class="rowTool">x</span>
+									/
+									<span onclick="redips.rowInsert(this)" class="rowTool">+</span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- save button -->
+				<input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form"/><span id="sMessage"></span>
+				<div id="message"/>
+			</div><!-- right container -->
+		</div><!-- drag container -->
+
+	</body>
+</html>
